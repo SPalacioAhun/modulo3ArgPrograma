@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+
+import FondoH from './assets/hot.jpg';
+import Descriptions from './componentes/Descriptions';
+
 
 function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <div className="app" style={{backgroundImage: `url(${FondoH})`}}>
+     <div className='overlay'>
+       <div className='conteiner'>
+         <div className='icon'>
+           <h2>Caucete, San Juan</h2>
+           <img src=' https://openweathermap.org/img/wn/10d@2x.png' alt='weatherIcon'/>
+           <h2>Nublado</h2>
+         </div>
+         <div className='temperature'>
+          <h1>30°C</h1>
+         </div>
+       </div>
+        <Descriptions/>
+     </div>
+    </div> 
+
+);
+    
 }
+   
+       
+    
+        
+        
+    
+
+  
 
 export default App;
+
+
+
+

@@ -1,13 +1,75 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --section-overlay: rgba(0, 0, 0, 0.7);
+  --background-overlay: rgba(0, 0, 0, 0.2);
+  --font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* Otras variables personalizadas aquí */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Estilos generales del cuerpo y elementos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+
+/* Contenedor principal */
+.app {
+  width: 100%;
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+/* Estilos para la sección superior */
+.icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon h3 {
+  font-size: 15px;
+  font-weight: 200;
+  text-transform: capitalize;
+}
+
+/* Estilos para las secciones */
+.section {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.4rem;
+  color: white;
+}
+
+/* Estilos para la sección de temperatura */
+.section__temperature {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--section-overlay);
+  /* Otras reglas de estilo específicas aquí */
+}
+
+/* Agrega estilos para centrar la temperatura en el centro de la página */
+.temperature {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25vh; /* Ajusta la altura al 100% de la ventana */
+  font-size: 30px; /* Tamaño de fuente para la temperatura */
+  font-weight: bold; /* Texto en negrita para la temperatura */
+  color: black; /* Color del texto */
 }
