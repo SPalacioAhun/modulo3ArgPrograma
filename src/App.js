@@ -1,38 +1,23 @@
-
-import FondoH from './assets/hot.jpg';
-import Descriptions from './componentes/Descriptions';
-
+import Violeta from './assets/pngtree-sky-color-clouds-climate-image_2205251.jpg';
+import './App.css';
+import ClimaApp from './Components/modulosClima/ClimaApp';
+import TransporteApp from './Components/modulosTransito/TransporteApp';
 
 function App() {
-  
   return (
-    <div className="app" style={{backgroundImage: `url(${FondoH})`}}>
-     <div className='overlay'>
-       <div className='conteiner'>
-         <div className='icon'>
-           <h2>Caucete, San Juan</h2>
-           <img src=' https://openweathermap.org/img/wn/10d@2x.png' alt='weatherIcon'/>
-           <h2>Nublado</h2>
-         </div>
-         <div className='temperature'>
-          <h1>30°C</h1>
-         </div>
-       </div>
-        <Descriptions/>
-     </div>
-    </div> 
-
-);
-    
+    <div className= "App" style={{backgroundImage: `url(${Violeta})`}}>
+       <div className="left-half">
+        <ClimaApp />
+        
+      </div>
+      <div className="right-half">
+        <TransporteApp />
+      </div>
+    </div>
+  );
 }
-   
-       
-    
-        
-        
-    
 
-  
+        
 
 export default App;
 
