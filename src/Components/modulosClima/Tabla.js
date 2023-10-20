@@ -38,7 +38,7 @@ function Tabla() {
   <h3 style={{ color: 'black' }}>Gráfico de temperatura a lo largo del día</h3>
   <div>
     {tablaData.length > 0 ? (
-      <BarChart width={800} height={150} data={tablaData}>
+      <BarChart width={570} height={100} data={tablaData}>
         <Bar dataKey="temperatura" fill="orangered" cursor={{ fill: 'rgba(255, 100, 100, 0.6)' }} />
         <CartesianGrid stroke="black" />
         <XAxis dataKey="hora" tick={{ fill: 'black' }} />
