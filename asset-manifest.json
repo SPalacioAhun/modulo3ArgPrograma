@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/modulo3argprograma/static/css/main.1f8bfe0e.css",
-    "main.js": "/modulo3argprograma/static/js/main.59e9f2cb.js",
+    "main.css": "/modulo3argprograma/static/css/main.ac974a14.css",
+    "main.js": "/modulo3argprograma/static/js/main.ee6a54cd.js",
     "static/media/pngtree-sky-color-clouds-climate-image_2205251.jpg": "/modulo3argprograma/static/media/pngtree-sky-color-clouds-climate-image_2205251.0cf7a4cfd5601b24f8cd.jpg",
     "index.html": "/modulo3argprograma/index.html",
-    "main.1f8bfe0e.css.map": "/modulo3argprograma/static/css/main.1f8bfe0e.css.map",
-    "main.59e9f2cb.js.map": "/modulo3argprograma/static/js/main.59e9f2cb.js.map"
+    "main.ac974a14.css.map": "/modulo3argprograma/static/css/main.ac974a14.css.map",
+    "main.ee6a54cd.js.map": "/modulo3argprograma/static/js/main.ee6a54cd.js.map"
   },
   "entrypoints": [
-    "static/css/main.1f8bfe0e.css",
-    "static/js/main.59e9f2cb.js"
+    "static/css/main.ac974a14.css",
+    "static/js/main.ee6a54cd.js"
   ]
 }
