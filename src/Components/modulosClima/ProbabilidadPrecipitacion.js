@@ -1,30 +1,36 @@
 import React, { useEffect, useState } from 'react';
 import { BsCloudRainHeavyFill } from 'react-icons/bs';
 
-function CalidadAire() {
+function ProbabilidadPrecipitacion({ location }) {
   const [probabilidadPrecipitacion, setProbabilidadPrecipitacion] = useState(null);
 
   useEffect(() => {
-    const apiUrl =
-      'https://api.open-meteo.com/v1/forecast?latitude=-37.3217&longitude=-59.1332&hourly=precipitation_probability&timezone=America%2FSao_Paulo&forecast_days=1';
+    const fetchWeatherData = (latitude, longitude) => {
+      const apiUrl =
+        `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&hourly=precipitation_probability&timezone=America%2FSao_Paulo&forecast_days=1`;
 
-    fetch(apiUrl)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Error en la solicitud a la API');
-        }
-        return response.json();
-      })
-      .then((data) => {
-        // Obtener la probabilidad de precipitación para la próxima hora
-        const probabilidad = data.hourly.precipitation_probability[0];
-        setProbabilidadPrecipitacion(probabilidad);
-      })
-      .catch((error) => {
-        console.error('Error al obtener los datos de calidad del aire:', error);
-        setProbabilidadPrecipitacion(null);
-      });
-  }, []);
+      fetch(apiUrl)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('Error en la solicitud a la API');
+          }
+          return response.json();
+        })
+        .then((data) => {
+          // Obtener la probabilidad de precipitación para la próxima hora
+          const probabilidad = data.hourly.precipitation_probability[0];
+          setProbabilidadPrecipitacion(probabilidad);
+        })
+        .catch((error) => {
+          console.error('Error al obtener los datos de probabilidad de precipitación:', error);
+          setProbabilidadPrecipitacion(null);
+        });
+    };
+
+    if (location && location.latitude && location.longitude) {
+      fetchWeatherData(location.latitude, location.longitude);
+    }
+  }, [location]);
 
   return (
     <div>
@@ -39,4 +45,4 @@ function CalidadAire() {
   );
 }
 
-export default CalidadAire;
+export default ProbabilidadPrecipitacion;

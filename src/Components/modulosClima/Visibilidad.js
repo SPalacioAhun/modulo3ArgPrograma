@@ -1,50 +1,56 @@
 import React, { useEffect, useState } from 'react';
-import {MdVisibility} from 'react-icons/md'
+import { MdVisibility } from 'react-icons/md';
 
-function Visibilidad() {
+function Visibilidad({ location }) {
   const [visibilidad, setVisibilidad] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const apiUrl = 'https://api.open-meteo.com/v1/forecast?latitude=-37.3217&longitude=-59.1332&current=visibility&timezone=America%2FSao_Paulo';
+    const fetchWeatherData = (latitude, longitude) => {
+      const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=visibility&timezone=America%2FSao_Paulo`;
 
-    fetch(apiUrl)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Error en la solicitud a la API');
-        }
-        return response.json();
-      })
-      .then((data) => {
-        const visibilidadValue = data.current.visibility;
-        setVisibilidad(visibilidadValue);
-      })
-      .catch((error) => {
-        console.error('Error al obtener la visibilidad', error);
-        setError('Error al obtener la visibilidad');
-      });
-  }, []);
+      fetch(apiUrl)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('Error en la solicitud a la API');
+          }
+          return response.json();
+        })
+        .then((data) => {
+          const visibilidadValue = data.current.visibility;
+          setVisibilidad(visibilidadValue);
+        })
+        .catch((error) => {
+          console.error('Error al obtener la visibilidad', error);
+          setError('Error al obtener la visibilidad');
+        });
+    };
+
+    if (location && location.latitude && location.longitude) {
+      fetchWeatherData(location.latitude, location.longitude);
+    }
+  }, [location]);
 
   return (
     <div>
-  <div className="visibilidad-card">
-    <h1><MdVisibility className='temperature-icon' /></h1>
-    <h3>Visibilidad</h3>
-    {error ? (
-      <p>{error}</p>
-    ) : (
-      <p>
-        {visibilidad !== undefined ? (
-          <strong>{`${visibilidad} metros`}</strong>
+      <div className="visibilidad-card">
+        <h1><MdVisibility className='temperature-icon' /></h1>
+        <h3>Visibilidad</h3>
+        {error ? (
+          <p>{error}</p>
         ) : (
-          'Cargando...'
+          <p>
+            {visibilidad !== undefined ? (
+              <strong>{`${visibilidad} metros`}</strong>
+            ) : (
+              'Cargando...'
+            )}
+          </p>
         )}
-      </p>
-    )}
-  </div>
-</div>
-
+      </div>
+    </div>
   );
 }
 
 export default Visibilidad;
+
